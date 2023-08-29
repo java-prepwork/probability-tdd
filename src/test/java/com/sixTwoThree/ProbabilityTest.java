@@ -10,9 +10,24 @@ class ProbabilityTest {
 
     @Test
     void toCheckEqualityWhenProbabilityOfHeadsInCoinTossAndProbabilityOfTailInCoinToss(){
-    Probability probabilityOfHeadInACoinToss = new Probability(0.5);
-    Probability probabilityOfTailInACoinToss = new Probability(0.5);
+        Probability probabilityOfHeadInACoinToss = new Probability(0.5);
+        Probability probabilityOfTailInACoinToss = new Probability(0.5);
 
-    assertThat(probabilityOfHeadInACoinToss,is(equalTo(probabilityOfTailInACoinToss)));
+        assertThat(probabilityOfHeadInACoinToss,is(equalTo(probabilityOfTailInACoinToss)));
+    }
+
+
+    @Test
+    void toReturnOneWhenTwoProbabilitiesAreCertainEventAndAnotherCertainEvent(){
+        Probability certainEvent = new Probability(1);
+        Probability anotherCertainEvent = new Probability(1);
+        assertThat(certainEvent.multiply(anotherCertainEvent), is(equalTo(1.0)));
+    }
+
+    @Test
+    void toReturnZeroPointOneTwoFiveWhenTwoProbabilitiesAreZeroPointTwoFiveAndZeroPointFive(){
+        Probability quarterProbability = new Probability(0.25);
+        Probability halfProbability = new Probability(0.5);
+        assertThat(quarterProbability.multiply(halfProbability), is(equalTo(0.125)));
     }
 }

@@ -22,6 +22,10 @@ class Probability {
         }
         return this.probabilityValue == ((Probability)obj).probabilityValue;
     }
+
+    public Object multiply(Probability secondProbability) {
+        return this.probabilityValue * ((Probability) secondProbability).probabilityValue;
+    }
 }
 
 //class CoinToss extends Probability{
